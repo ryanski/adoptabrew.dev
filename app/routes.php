@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('landingpage');
 });
 
 Route::get('/brews', function()
@@ -26,14 +26,8 @@ Route::get('/createbrew', function()
 	return 'Create a brew campaign.';
 });
 
-Route::get('/brew/{beerName}', function($beerName)
-{
-	if($beerName == "budlight") {
-		return Redirect::to('/');
-	} else {
+Route::get('/brew/{beerName}', 'HomeController@brewPage');
 
-	$data = array('beerName' => $beerName);
-	return View::make('my-first-view')->with($data);
+	
 
-	}
-});
+

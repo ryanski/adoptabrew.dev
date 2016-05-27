@@ -20,4 +20,15 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
+	public function brewPage($beerName)
+	{
+		if($beerName == "budlight") {
+		return Redirect::to('/');
+		} else {
+
+		$data = array('beerName' => $beerName);
+		return View::make('my-first-view')->with($data);
+		}
+	}
+
 }
