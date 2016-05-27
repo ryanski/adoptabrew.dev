@@ -9,6 +9,7 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
+		$users = User::all();
 		echo 'Shows all users(index)';
 	}
 

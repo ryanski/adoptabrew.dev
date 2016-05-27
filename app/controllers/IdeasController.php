@@ -9,6 +9,7 @@ class IdeasController extends \BaseController {
 	 */
 	public function index()
 	{
+		$ideas = Ideas::all();
 		echo 'Shows all ideas(index)';
 	}
 
