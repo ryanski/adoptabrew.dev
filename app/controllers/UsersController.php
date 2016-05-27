@@ -9,7 +9,7 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		echo 'Shows all users(index)';
 	}
 
 
@@ -20,7 +20,7 @@ class UsersController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		echo 'Show form to create new user';
 	}
 
 
@@ -31,7 +31,7 @@ class UsersController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		echo 'Store the new user';
 	}
 
 
@@ -43,7 +43,7 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		echo 'Show the specific user';
 	}
 
 
@@ -55,7 +55,7 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		echo 'Edit the specific user';
 	}
 
 
@@ -67,7 +67,7 @@ class UsersController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		echo 'Update the specific user';
 	}
 
 
@@ -79,7 +79,7 @@ class UsersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		echo 'Destroy the specific user';
 	}
 
 

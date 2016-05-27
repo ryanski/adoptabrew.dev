@@ -28,6 +28,12 @@ Route::get('/createbrew', function()
 
 Route::get('/brew/{beerName}', 'HomeController@brewPage');
 
+Route::resource('users', 'UsersController');
+
+Route::resource('ideas', 'IdeasController');
+
+Route::resource('brews', 'BrewsController');
+
 	
 
 

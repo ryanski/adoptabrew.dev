@@ -9,7 +9,7 @@ class IdeasController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		echo 'Shows all ideas(index)';
 	}
 
 
@@ -20,7 +20,7 @@ class IdeasController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		echo 'Show form to create new idea';
 	}
 
 
@@ -31,7 +31,7 @@ class IdeasController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		echo 'Store the new idea';
 	}
 
 
@@ -43,7 +43,7 @@ class IdeasController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		echo "Show idea # $id";
 	}
 
 
@@ -55,7 +55,7 @@ class IdeasController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		echo "Edit idea # $id";
 	}
 
 
@@ -67,7 +67,7 @@ class IdeasController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		echo "Update idea # $id";
 	}
 
 
@@ -79,7 +79,7 @@ class IdeasController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		echo "Destroy idea # $id";
 	}
 
 
