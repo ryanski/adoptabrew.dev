@@ -1,1 +1,1 @@
-### I will fill this out
+### Web App where beer lovers and breweries come together.  More details soon.
