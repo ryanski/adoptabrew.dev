@@ -1,31 +1,31 @@
 <?php
-class IdeasTableSeeder extends Seeder {
+class IdeaTableSeeder extends Seeder {
 
 	public function run()
 	{
-		$ideas = new Ideas();
-		$ideas->username = 'RyanSki';
-		$ideas->brewname = 'Whistout';
-		$ideas->description = 'Stout beer with flavor of maple and whiskey.'
-		$ideas->save();
+		$idea1 = new Idea();
+		$idea1->username = 'RyanSki';
+		$idea1->brewname = 'Whistout';
+		$idea1->description = 'Stout beer with flavor of maple and whiskey.'
+		$idea1->save();
 
-		$ideas = new Ideas();
-		$ideas->username = 'RyanSki';
-		$ideas->brewname = 'Outback Beer';
-		$ideas->description = 'Pale ale with a spicy kick from native peppers of Australia.  The label with feature all deadly creatures of the outback.'
-		$ideas->save();
+		$idea2 = new Idea();
+		$idea2->username = 'RyanSki';
+		$idea2->brewname = 'Outback Beer';
+		$idea2->description = 'Pale ale with a spicy kick from native peppers of Australia.  The label with feature all the deadly creatures of the outback.'
+		$idea2->save();
 
-		$ideas = new Ideas();
-		$ideas->username = 'Garrett';
-		$ideas->brewname = 'HIPA';
-		$ideas->description = 'Hoppiest IPA ever made.  Just one will leave you hoppy!'
-		$ideas->save();
+		$idea3 = new Idea();
+		$idea3->username = 'Garrett';
+		$idea3->brewname = 'HIPA';
+		$idea3->description = 'Hoppiest IPA ever made.  Just one will leave you hoppy!'
+		$idea3->save();
 
-		$ideas = new Ideas();
-		$ideas->username = 'Garrett';
-		$ideas->brewname = 'Cider ale';
-		$ideas->description = 'Ale and cider combine to make the most balanced beer ever.'
-		$ideas->save();
+		$idea4 = new Idea();
+		$idea4->username = 'Garrett';
+		$idea4->brewname = 'Cider ale';
+		$idea4->description = 'Ale and cider combine to make the most balanced beer ever.'
+		$idea4->save();
 
 	
 

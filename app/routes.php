@@ -34,6 +34,21 @@ Route::resource('ideas', 'IdeasController');
 
 Route::resource('brews', 'BrewsController');
 
+Route::get('orm-test', function ()
+{
+	$ideas = Idea::all();
+	return $ideas;
+ //    $idea5 = new Idea();
+	// $idea5->brewname = 'Eloquent is awesome!';
+	// $idea5->description  = 'It is super easy to create a new post.';
+	// $idea5->save();
+
+	// $idea6 = new Idea();
+	// $idea6->brewname = 'Post number two';
+	// $idea6->description  = 'The body for post number two.';
+	// $idea6->save();
+});
+
 	
 
 

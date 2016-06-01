@@ -9,8 +9,9 @@ class IdeasController extends \BaseController {
 	 */
 	public function index()
 	{
-		$ideas = Ideas::all();
-		echo 'Shows all ideas(index)';
+		$ideas = Idea::all();
+		return View::make('ideas.index');
+		// echo 'Shows all ideas(index)';
 	}
 
 
@@ -20,8 +21,10 @@ class IdeasController extends \BaseController {
 	 * @return Response
 	 */
 	public function create()
-	{
-		echo 'Show form to create new idea';
+	{	return View::make('ideas.create');
+
+
+		// echo 'Show form to create new idea';
 	}
 
 
@@ -31,8 +34,10 @@ class IdeasController extends \BaseController {
 	 * @return Response
 	 */
 	public function store()
-	{
+	{	
 		echo 'Store the new idea';
+		return Redirect::back()->withInput();
+		
 	}
 
 

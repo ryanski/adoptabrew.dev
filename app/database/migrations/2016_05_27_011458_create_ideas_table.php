@@ -14,7 +14,7 @@ class CreateIdeasTable extends Migration {
 	{
 		Schema::create('ideas', function($table)
 		{
-			$table->string('username', 100)->unique();
+			$table->string('username', 100);
 			$table->string('brewname', 100);
 			$table->text('description');
 			$table->softDeletes();
