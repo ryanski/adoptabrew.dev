@@ -15,7 +15,7 @@ class CreateBrewsTable extends Migration {
 		Schema::create('brews', function($table)
 		{
 			$table->increments('id');
-			$table->string('username', 100)->unique();
+			$table->string('username', 100);
 			$table->string('brewname', 100);
 			$table->string('brewery', 100);
 			$table->text('description')->nullable();

@@ -10,7 +10,8 @@ class IdeasController extends \BaseController {
 	public function index()
 	{
 		$ideas = Idea::all();
-		return View::make('ideas.index');
+		return $ideas;
+		// return View::make('ideas.index');
 		// echo 'Shows all ideas(index)';
 	}
 
@@ -21,7 +22,9 @@ class IdeasController extends \BaseController {
 	 * @return Response
 	 */
 	public function create()
-	{	return View::make('ideas.create');
+	{	
+
+		return View::make('ideas.create');
 
 
 		// echo 'Show form to create new idea';
@@ -35,7 +38,11 @@ class IdeasController extends \BaseController {
 	 */
 	public function store()
 	{	
-		echo 'Store the new idea';
+		$idea = new Idea();
+		$idea->brewname = Input::get('brewname');
+		$idea->description = Input::get('description');
+		$idea->save();
+		// echo 'Store the new idea';
 		return Redirect::back()->withInput();
 		
 	}
@@ -49,7 +56,9 @@ class IdeasController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		echo "Show idea # $id";
+		$idea = Idea::find($id);
+		return $idea;
+		// echo "Show idea # $id";
 	}
 
 
@@ -61,7 +70,11 @@ class IdeasController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		echo "Edit idea # $id";
+		$idea = Idea::find($id);
+		$idea->brewname = "Coolest Beer Ever";
+		$idea->save();
+		// echo "Edit idea # $id";
+		return $idea;
 	}
 
 
@@ -85,7 +98,9 @@ class IdeasController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		echo "Destroy idea # $id";
+		$idea = Idea::find($id);
+		$idea->delete();
+		// echo "Destroy idea # $id";
 	}
 
 

@@ -11,7 +11,13 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		// $this->call('UserTableSeeder');
+		DB::table('users')->delete();
+		DB::table('ideas')->delete();
+		DB::table('brews')->delete();
+
+		$this->call('UsersTableSeeder');
+		$this->call('IdeasTableSeeder');
+		$this->call('BrewsTableSeeder');
 	}
 
 }
