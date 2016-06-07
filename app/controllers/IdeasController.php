@@ -10,8 +10,8 @@ class IdeasController extends \BaseController {
 	public function index()
 	{
 		$ideas = Idea::all();
-		return $ideas;
-		// return View::make('ideas.index');
+		// return $ideas;
+		return View::make('ideas.index')->with('ideas', $ideas);
 		// echo 'Shows all ideas(index)';
 	}
 
@@ -57,7 +57,8 @@ class IdeasController extends \BaseController {
 	public function show($id)
 	{
 		$idea = Idea::find($id);
-		return $idea;
+		return View::make('ideas.show')->with('idea', $idea);
+		// return $idea;
 		// echo "Show idea # $id";
 	}
 

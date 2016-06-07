@@ -16,7 +16,7 @@ Route::get('/', function()
 	return View::make('landingpage');
 });
 
-Route::get('/brews', function()
+Route::get('/brewss', function()
 {
 	return 'List of brews.';
 });

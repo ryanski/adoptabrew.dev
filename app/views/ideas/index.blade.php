@@ -4,10 +4,10 @@
 
  @foreach($ideas as $idea)
         <h2>
-            {{{ $ideas->brewname }}}
-            <small>{{{ $ideas->username }}}</small>
+            <a href="{{{ action('IdeasController@show', $idea->id) }}}">{{{ $idea->brewname }}}<a>
+            <small>{{{ $idea->username }}}</small>
         </h2>
-        <p>{{{ $ideas->description }}}</p>
+        <p>{{{ $idea->description }}}</p>
     @endforeach
 @stop
 

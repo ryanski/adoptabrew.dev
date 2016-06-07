@@ -50,17 +50,17 @@ $app = require_once __DIR__.'/../bootstrap/start.php';
 |	Compile .less files from the Less 
 |	folder into the Css folder as .css files
 */
-	// $less = new lessc;
-	// $lessFiles = array_diff( scandir('less/'), array('..','.') );
+	$less = new lessc;
+	$lessFiles = array_diff( scandir('less/'), array('..','.') );
 
-	// foreach( $lessFiles as $thisFile ){
-	// 	if (strpos($thisFile, '.less') !== false) {
-	// 		// $thisFile = ;
-	// 		// $less->checkedCompile( 'less/' . $thisFile, 'css/' . $thisFile );
-	// 		$less->compileFile( 'less/' . $thisFile, 'css/' . str_replace( '.less', '.css', $thisFile ) );	
-	// 		// $less->checkedCompile("input.less", "output.css");
-	// 		// $less->compileFile("input.less", "output.css");
-	// 	}
-	// }
+	foreach( $lessFiles as $thisFile ){
+		if (strpos($thisFile, '.less') !== false) {
+			// $thisFile = ;
+			// $less->checkedCompile( 'less/' . $thisFile, 'css/' . $thisFile );
+			$less->compileFile( 'less/' . $thisFile, 'css/' . str_replace( '.less', '.css', $thisFile ) );	
+			// $less->checkedCompile("input.less", "output.css");
+			// $less->compileFile("input.less", "output.css");
+		}
+	}
 
 $app->run();
