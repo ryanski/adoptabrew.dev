@@ -71,10 +71,9 @@ class IdeasController extends \BaseController {
 	public function edit($id)
 	{
 		$idea = Idea::find($id);
-		$idea->brewname = "Coolest Beer Ever";
-		$idea->save();
+		return View::make('ideas.edit')->with('idea', $idea);
 		// echo "Edit idea # $id";
-		return $idea;
+		
 	}
 
 
@@ -85,8 +84,20 @@ class IdeasController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id)
-	{
-		echo "Update idea # $id";
+	{	
+		// dd($id);
+		
+
+			$idea = Idea::find($id);
+		// $idea= Input::all();
+
+		// dd($idea);
+
+		$idea->brewname = Input::get('brewname');
+		$idea->description = Input::get('description');
+
+		$idea->save();
+		// echo "Update idea # $id";
 	}
 
 
