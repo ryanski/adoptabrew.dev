@@ -72,6 +72,10 @@ class IdeasController extends \BaseController {
 	public function show($id)
 	{
 		$idea = Idea::find($id);
+		if(!$idea){
+			App::abort(404);
+		}
+		
 		return View::make('ideas.show')->with('idea', $idea);
 		// return $idea;
 		// echo "Show idea # $id";
@@ -87,6 +91,10 @@ class IdeasController extends \BaseController {
 	public function edit($id)
 	{
 		$idea = Idea::find($id);
+		if(!$idea){
+			App::abort(404);
+		}
+
 		return View::make('ideas.edit')->with('idea', $idea);
 		// echo "Edit idea # $id";
 		
@@ -108,6 +116,10 @@ class IdeasController extends \BaseController {
 		// $idea= Input::all();
 
 		// dd($idea);
+
+		if(!$idea){
+			App::abort(404);
+		}
 
 		$idea->brewname = Input::get('brewname');
 		$idea->description = Input::get('description');
