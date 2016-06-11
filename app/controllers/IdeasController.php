@@ -44,6 +44,7 @@ class IdeasController extends \BaseController {
 
 		if ($validator->fails()) {
 			Session::flash('errorMessage', 'Something went wrong.  Info is posted below.');
+			Log::info('Validator fails', Input::all());
 			return Redirect::back()->withInput()->withErrors($validator);
 
 		} else { 
@@ -52,6 +53,8 @@ class IdeasController extends \BaseController {
 			$idea->description = Input::get('description');
 			$idea->save();
 			Session::flash('successMessage', 'This idea was successfully stored.');
+			Log::info('Post successful');
+			Log::info('Log message', array('context'=> Input::all()));
 			return Redirect::action('IdeasController@index');
 
 		}
@@ -75,7 +78,7 @@ class IdeasController extends \BaseController {
 		if(!$idea){
 			App::abort(404);
 		}
-		
+
 		return View::make('ideas.show')->with('idea', $idea);
 		// return $idea;
 		// echo "Show idea # $id";
@@ -112,7 +115,7 @@ class IdeasController extends \BaseController {
 		// dd($id);
 		
 
-			$idea = Idea::find($id);
+		$idea = Idea::find($id);
 		// $idea= Input::all();
 
 		// dd($idea);
