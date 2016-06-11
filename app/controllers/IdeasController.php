@@ -40,8 +40,10 @@ class IdeasController extends \BaseController {
 	public function store()
 	{	
 		$validator = Validator::make(Input::all(), Idea::$rules);
+		
 
 		if ($validator->fails()) {
+			Session::flash('errorMessage', 'Something went wrong.  Info is posted below.');
 			return Redirect::back()->withInput()->withErrors($validator);
 
 		} else { 
@@ -49,6 +51,8 @@ class IdeasController extends \BaseController {
 			$idea->brewname = Input::get('brewname');
 			$idea->description = Input::get('description');
 			$idea->save();
+			Session::flash('successMessage', 'This idea was successfully stored.');
+			return Redirect::action('IdeasController@index');
 
 		}
 		
@@ -109,6 +113,9 @@ class IdeasController extends \BaseController {
 		$idea->description = Input::get('description');
 
 		$idea->save();
+		Session::flash('successMessage', 'This idea was successfully updated.');
+		// If i don't add the return Redirect, I don't see the Session::flash.  Why??
+		return Redirect::action('IdeasController@show', array($idea->id));
 		// echo "Update idea # $id";
 	}
 
@@ -123,6 +130,8 @@ class IdeasController extends \BaseController {
 	{
 		$idea = Idea::find($id);
 		$idea->delete();
+		Session::flash('successMessage', 'This idea was successfully deleted.');
+		return Redirect::action('IdeasController@index');
 		// echo "Destroy idea # $id";
 	}
 
