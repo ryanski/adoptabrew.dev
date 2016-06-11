@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
+{{ $errors->first('brewname', '<span class="help-block">:message</span>') }}
+{{ $errors->first('description', '<span class="help-block">:message</span>') }}
 
 {{ Form::open(array('action' => "IdeasController@store")) }}
 {{ Form::label('brewname', 'Brew Name') }}

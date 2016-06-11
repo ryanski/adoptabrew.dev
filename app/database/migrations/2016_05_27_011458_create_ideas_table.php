@@ -15,6 +15,7 @@ class CreateIdeasTable extends Migration {
 		Schema::create('ideas', function($table)
 		{
 			$table->increments('id');
+			// $table->integer('id')->unsigned()->foreign('id')->references('user')->on('user');
 			$table->string('username', 100);
 			$table->string('brewname', 100);
 			$table->text('description');

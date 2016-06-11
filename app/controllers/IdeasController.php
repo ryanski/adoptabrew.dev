@@ -10,6 +10,7 @@ class IdeasController extends \BaseController {
 	public function index()
 	{
 		$ideas = Idea::all();
+		// $ideas = Idea::paginate(4);
 		// return $ideas;
 		return View::make('ideas.index')->with('ideas', $ideas);
 		// echo 'Shows all ideas(index)';
@@ -38,12 +39,22 @@ class IdeasController extends \BaseController {
 	 */
 	public function store()
 	{	
-		$idea = new Idea();
-		$idea->brewname = Input::get('brewname');
-		$idea->description = Input::get('description');
-		$idea->save();
+		$validator = Validator::make(Input::all(), Idea::$rules);
+
+		if ($validator->fails()) {
+			return Redirect::back()->withInput()->withErrors($validator);
+
+		} else { 
+			$idea = new Idea();
+			$idea->brewname = Input::get('brewname');
+			$idea->description = Input::get('description');
+			$idea->save();
+
+		}
+		
+		
 		// echo 'Store the new idea';
-		return Redirect::back()->withInput();
+		
 		
 	}
 
