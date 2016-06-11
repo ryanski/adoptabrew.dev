@@ -15,4 +15,12 @@ class BaseController extends Controller {
 		}
 	}
 
+	public function __construct()
+	{
+	    // require csrf token for all post, delete, and put actions
+	    // this adds CSRF (Cross Site Request Forgery) protection
+	    // will receive errors if form submitted doesn't have the _token in form
+	    $this->beforeFilter('csrf', array('on' => array('post', 'delete', 'put')));
+	}
+
 }

@@ -6,6 +6,7 @@
             <small>{{{ $idea->username }}}</small>
         </h2>
         <p>{{{ $idea->description }}}</p>
+        {{ $idea->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i A') }}
 
     {{ Form::open(array('action' => array('IdeasController@destroy', $idea->id), 'method' => 'DELETE', 'id' => 'formDelete'))}}
 
