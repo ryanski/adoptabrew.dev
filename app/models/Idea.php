@@ -23,6 +23,13 @@ class Idea extends BaseModel {
 		'brewname' => 'required|min:2|max:100',
 		'description' => 'required|min:20|max:1000'
 	);
+
+	/** Idea belong to a single User
+	*/
+	public function user()
+	{
+		return $this->belongsTo('User');
+	}
 	
 
 	
