@@ -2,7 +2,8 @@
 
 @section('content')
         <h2>
-            {{{ $idea->brewname }}}   
+       {{--  {{{ $ideas = User::find(1)->ideas }}} --}}    
+        {{{ $idea->brewname }}} 
             <small>{{{ $idea->username }}}</small>
         </h2>
         <p>{{{ $idea->description }}}</p>

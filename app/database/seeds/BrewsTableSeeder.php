@@ -4,7 +4,7 @@ class BrewsTableSeeder extends Seeder {
 	public function run()
 	{
 		$brew1 = new Brew();
-		$brew1->username = 'RyanSki';
+		$brew1->user_id = User::find(1)->id;
 		$brew1->brewname = 'Whistout';
 		$brew1->brewery = 'Alamo';
 		$brew1->description = 'Stout beer with flavor of maple and whiskey.';
@@ -14,7 +14,7 @@ class BrewsTableSeeder extends Seeder {
 		$brew1->save();
 
 		$brews2 = new Brew();
-		$brews2->username = 'RyanSki';
+		$brews2->user_id = User::find(1)->id;
 		$brews2->brewname = 'Peachale';
 		$brews2->brewery = 'Karbach';
 		$brews2->description = 'Ale with flavor of peaches and lemons.';
@@ -24,7 +24,7 @@ class BrewsTableSeeder extends Seeder {
 		$brews2->save();
 
 		$brew3 = new Brew();
-		$brew3->username = 'RyanSki';
+		$brew3->user_id = User::find(1)->id;
 		$brew3->brewname = 'Manly Pilsner';
 		$brew3->brewery = 'Alamo';
 		$brew3->description = 'Pilsner beer with crisp flavor and medium hop.';
@@ -34,7 +34,7 @@ class BrewsTableSeeder extends Seeder {
 		$brew3->save();
 
 		$brew4 = new Brew();
-		$brew4->username = 'RyanSki';
+		$brew4->user_id = User::find(2)->id;
 		$brew4->brewname = 'Kiwi Shandy';
 		$brew4->brewery = 'Alamo';
 		$brew4->description = 'Shandy beer with a tinge of kiwi juice.';
@@ -44,7 +44,7 @@ class BrewsTableSeeder extends Seeder {
 		$brew4->save();
 
 		$brew5 = new Brew();
-		$brew5->username = 'RyanSki';
+		$brew5->user_id = User::find(2)->id;
 		$brew5->brewname = 'Whistout';
 		$brew5->brewery = 'Alamo';
 		$brew5->description = 'Stout beer with flavor of maple and whiskey.';
@@ -54,7 +54,7 @@ class BrewsTableSeeder extends Seeder {
 		$brew5->save();
 
 		$brew6 = new Brew();
-		$brew6->username = 'RyanSki';
+		$brew6->user_id = User::find(2)->id;
 		$brew6->brewname = 'Whistout';
 		$brew6->brewery = 'Alamo';
 		$brew6->description = 'Stout beer with flavor of maple and whiskey.';

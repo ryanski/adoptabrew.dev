@@ -15,8 +15,9 @@ class CreateIdeasTable extends Migration {
 		Schema::create('ideas', function($table)
 		{
 			$table->increments('id');
-			$table->foreign('user_id')->references('id')->on('user');
-			$table->string('username', 100);
+			$table->integer('user_id')->unsigned()->index();
+			$table->foreign('user_id')->references('id')->on('users');
+			// $table->string('username', 100);
 			$table->string('brewname', 100);
 			$table->text('description');
 			$table->softDeletes();
@@ -31,11 +32,12 @@ class CreateIdeasTable extends Migration {
 	 */
 	public function down()
 	{
-	// Schema::drop('ideas');
-	Schema::table('ideas', function($table) 
-	{
-		$table->dropForeign('ideas_user_id_foreign');
-		$table->dropColumn('user_id');
-	});
+	Schema::drop('ideas');
+	// Schema::table('ideas', function($table) 
+	// {
+	// 	$table->dropForeign('ideas_user_id_foreign');
+	// 	$table->dropColumn('user_id');
+	// });
+	}
 
 }

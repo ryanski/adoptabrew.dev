@@ -1,20 +1,23 @@
 <?php
 
-use Illuminate\Auth\UserTrait;
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableTrait;
-use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends BaseModel implements UserInterface, RemindableInterface {
-
-	use UserTrait, RemindableTrait;
+class User extends BaseModel {
 
 	/**
 	 * The database table used by the model.
 	 *
-	 * @var string
+	 * 
 	 */
 	protected $table = 'users';
+
+
+	protected $fillable = [
+		'username', 
+		'brewname',
+		'description',
+		'password',
+		'zipcode'
+	];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -30,9 +33,14 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 		return $this->hasMany('Idea');
 	}
 
-	public function brews()
-	{
-		return $this->hasMany('Brew');
-	}
+	/*
+	 *	hasMany brews on Brew
+	 */
+	 public function brews()
+	 {
+	 	return $this->hasMany('Brew');
+	 }
+	
+	 
 
 }
