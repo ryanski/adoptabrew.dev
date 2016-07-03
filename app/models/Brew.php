@@ -19,12 +19,13 @@ class Brew extends BaseModel {
 		'video'
 	];
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = array('password', 'remember_token');
+	public static $rules = array(
+		'brewname' => 'required|min:2|max:100',
+		'description' => 'required|min:20|max:1000',
+		'goal' => 'required',
+		'deadline' => 'required',
+		'video' => 'required'
+		);
 
 	public function user()
 	{

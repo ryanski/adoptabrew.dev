@@ -9,7 +9,9 @@ class BrewsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$brews = Brew::all();
+
+		return View::make('brews.index')->with('brews', $brews);
 	}
 
 
@@ -20,7 +22,7 @@ class BrewsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('brews.create');
 	}
 
 
@@ -31,7 +33,33 @@ class BrewsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$validator = Validator::make(Input::all(), Brew::$rules);
+
+
+		if ($validator->fails()) {
+			Session::flash('errorMessage', 'Something went wrong.  Info is posted below.');
+			Log::info('Validator fails', Input::all());
+			return Redirect::back()->withInput()->withErrors($validator);
+
+		} else { 
+			$brew = new Idea();
+			$brew->brewname = Input::get('brewname');
+			$brew->description = Input::get('description');
+			$brew->goal = Input::get('goal');
+			$brew->deadline = Input::get('deadline');
+			$brew->video = Input::get('video');
+			$idea->save();
+			Session::flash('successMessage', 'This brew was successfully stored.');
+			Log::info('Post successful');
+			Log::info('Log message', array('context'=> Input::all()));
+			return Redirect::action('BrewsController@index');
+
+		}
+		
+		
+		// echo 'Store the new brew';
+		
+
 	}
 
 
@@ -43,7 +71,12 @@ class BrewsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$brew = Brew::find($id);
+		if(!$brew){
+			App::abort(404);
+		}
+
+		return View::make('brews.show')->with('brew', $brew);
 	}
 
 
@@ -55,7 +88,13 @@ class BrewsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$brew = Brew::find($id);
+		if(!$brew){
+			App::abort(404);
+		}
+
+		return View::make('brews.edit')->with('brew', $brew);
+		// echo "Edit brew # $id";
 	}
 
 
