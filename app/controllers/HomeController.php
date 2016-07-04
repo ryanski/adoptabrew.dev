@@ -31,4 +31,16 @@ class HomeController extends BaseController {
 		}
 	}
 
+	public function postLogin(){
+		$email = Input::get('email');
+		$password = Input::get('password');
+
+		if ( Auth::attempt( array('email' => $email, 'password' => $password) )){
+			return Redirect::intended('/');
+		} else {
+			Session::flash('errorMessage' , 'invalid username or password');
+			return Redirect::back();
+		}
+	}
+
 }

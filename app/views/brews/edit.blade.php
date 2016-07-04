@@ -9,6 +9,8 @@ echo $brew->id;
     <div class="form-group">
         {{ Form::label('brewname', 'Brew Name') }}
         {{ Form::text('brewname', null, ['class' => 'form-control', 'autofocus', 'placeholder' => $brew->brewname ]) }}
+         {{ Form::label('brewery', 'Brewery') }}
+        {{ Form::text('brewery', null, ['class' => 'form-control', 'autofocus', 'placeholder' => $brew->brewery ]) }}
         {{ Form::label('description', 'Description') }}
         {{ Form::textarea('description', null, ['class' => 'form-control', 'autofocus', 'placeholder' => $brew->description ]) }}
         {{ Form::label('goal', 'Goal') }}

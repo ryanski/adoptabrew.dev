@@ -49,6 +49,13 @@ Route::get('orm-test', function ()
 	$idea6->save();
 });
 
+Route::get('login', function()
+{
+	return View::make('auth.loginform');
+});
+
+Route::post('login', 'HomeController@postLogin');
+
 	
 
 

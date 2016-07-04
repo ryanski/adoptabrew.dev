@@ -21,6 +21,7 @@ class Brew extends BaseModel {
 
 	public static $rules = array(
 		'brewname' => 'required|min:2|max:100',
+		'brewery' => 'required',
 		'description' => 'required|min:20|max:1000',
 		'goal' => 'required',
 		'deadline' => 'required',

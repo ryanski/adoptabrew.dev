@@ -7,6 +7,8 @@
 {{ Form::open(array('action' => "BrewsController@store")) }}
 {{ Form::label('brewname', 'Brew Name') }}
 {{ Form::text('brewname', Input::old('brewname'), ['class' => 'form-control']) }}
+{{ Form::label('brewery', 'Brewery') }}
+{{ Form::text('brewery', Input::old('brewery'), ['class' => 'form-control']) }}
 
 {{ Form::label('description', 'Description') }}
 {{ Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'Enter your description']) }}
