@@ -51,6 +51,7 @@ class IdeasController extends \BaseController {
 			$idea = new Idea();
 			$idea->brewname = Input::get('brewname');
 			$idea->description = Input::get('description');
+			$idea->user_id = Auth::user()->id;
 			$idea->save();
 			Session::flash('successMessage', 'This idea was successfully stored.');
 			Log::info('Post successful');

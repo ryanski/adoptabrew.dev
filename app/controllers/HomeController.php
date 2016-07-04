@@ -35,7 +35,7 @@ class HomeController extends BaseController {
 		$email = Input::get('email');
 		$password = Input::get('password');
 
-		if ( Auth::attempt( array('email' => $email, 'password' => $password) )){
+		if ( Auth::attempt( ['email' => $email, 'password' => $password] )){
 			return Redirect::intended('/');
 		} else {
 			Session::flash('errorMessage' , 'invalid username or password');
