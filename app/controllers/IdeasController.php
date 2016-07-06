@@ -10,6 +10,7 @@ class IdeasController extends \BaseController {
 	public function index()
 	{
 		$ideas = Idea::all();
+		// $ideas = $query->orderby('created_at')->get;
 		// $ideas = Idea::paginate(4);
 		// return $ideas;
 		return View::make('ideas.index')->with('ideas', $ideas);

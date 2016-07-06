@@ -14,7 +14,8 @@
 					<ul class="nav navbar-nav navbar-right jcustom_navbar">
 						<li><a href ="ideas">Ideas</a></li>
 						<li><a href ="brews">Brews</a></li>
-						<li><a href ="login">Login</a></li>
+						<li><a "{{{ action("HomeController@postLogin") }}}">Login</a></li>
+						<li><a href ="logout">Logout</a></li>
 					</ul>
 				</div>
 			</div>	 

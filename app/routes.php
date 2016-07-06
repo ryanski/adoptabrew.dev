@@ -56,6 +56,11 @@ Route::get('login', function()
 
 Route::post('login', 'HomeController@postLogin');
 
+Route::get('brews/create', array('before' => 'auth', function()
+{
+    return View::make('brews.create');
+}));
+
 	
 
 
