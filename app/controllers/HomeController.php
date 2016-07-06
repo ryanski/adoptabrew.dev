@@ -43,9 +43,14 @@ class HomeController extends BaseController {
 		}
 	}
 
+
+	public function getLogin() {
+		return View::make('auth.loginform');
+	}
+
 	public function userLogout() {
 		Auth::logout();
-		// return Redirect::route('landingpage');
+	 	return View::make('landingpage');
 	}
 
 }

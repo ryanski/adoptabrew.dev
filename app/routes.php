@@ -49,10 +49,7 @@ Route::get('orm-test', function ()
 	$idea6->save();
 });
 
-Route::get('login', function()
-{
-	return View::make('auth.loginform');
-});
+Route::get('login', 'HomeController@getLogin');
 
 Route::post('login', 'HomeController@postLogin');
 
@@ -61,6 +58,7 @@ Route::get('brews/create', array('before' => 'auth', function()
     return View::make('brews.create');
 }));
 
+Route::get('logout', 'HomeController@userLogout');
 	
 
 

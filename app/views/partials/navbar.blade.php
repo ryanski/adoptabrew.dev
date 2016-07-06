@@ -11,11 +11,11 @@
 					</button>
 				</div>
 				<div class="collapse navbar-collapse navHeaderCollapse">
-					<ul class="nav navbar-nav navbar-right jcustom_navbar">
-						<li><a href ="ideas">Ideas</a></li>
-						<li><a href ="brews">Brews</a></li>
-						<li><a "{{{ action("HomeController@postLogin") }}}">Login</a></li>
-						<li><a href ="logout">Logout</a></li>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href = "{{{ action("IdeasController@index") }}}">Ideas</a></li>
+						<li><a href = "{{{ action('BrewsController@index') }}}">Brews</a></li>
+						<li><a href = "{{{ action('HomeController@getLogin') }}}">Login</a></li>
+						<li><a href ="{{{ action('HomeController@userLogout') }}}">Logout</a></li>
 					</ul>
 				</div>
 			</div>	 
