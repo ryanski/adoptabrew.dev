@@ -24,7 +24,6 @@ class CreateBrewsTable extends Migration {
 			$table->integer('goal');
 			$table->date('deadline');
 			$table->string('video',200);
-			$table->text('remember_token')->nullable();
 			$table->softDeletes();
 			$table->timestamps();
 

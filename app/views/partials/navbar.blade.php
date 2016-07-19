@@ -15,7 +15,7 @@
 						<li><a href = "{{{ action("IdeasController@index") }}}">Ideas</a></li>
 						<li><a href = "{{{ action('BrewsController@index') }}}">Brews</a></li>
 						<li><a href = "{{{ action('HomeController@getLogin') }}}">Login</a></li>
-						<li><a href ="{{{ action('HomeController@userLogout') }}}">Logout</a></li>
+						<li><a href = "{{{ action('HomeController@userLogout') }}}">Logout</a></li>
 					</ul>
 				</div>
 			</div>	 
