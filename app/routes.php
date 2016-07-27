@@ -35,7 +35,11 @@ Route::resource('ideas', 'IdeasController');
 Route::resource('brews', 'BrewsController');
 
 Route::get('orm-test', function ()
-{
+{	
+	if(Auth::check()){
+		return 'authorized';
+	}
+	return 'not authorized';
 	// $ideas = Idea::all();
 	// return $ideas;
     $idea5 = new Idea();
@@ -53,12 +57,33 @@ Route::get('login', 'HomeController@getLogin');
 
 Route::post('login', 'HomeController@postLogin');
 
-Route::get('brews/create', array('before' => 'auth', function()
-{
-    return View::make('brews.create');
-}));
+// Route::get('brews/create', array('before' => 'auth', function()
+// {
+//     return View::make('brews.create');
+// }));
 
 Route::get('logout', 'HomeController@userLogout');
-	
+
+
+// if Auth::User()->role = 'admin'
+
+
+// Route::get('brews/create', function ()
+// {	
+// 	if(!Auth::user()->hasRole("anewfan")){
+// 		return 'Not authorized';
+// 	}
+// 	return "Authorized";
+
+// });
+
+Route::get('brews/create', function ()
+{	
+	if(!Auth::user()->can("editOwnBrew")){
+		return 'Not authorized';
+	}
+	return "Authorized";
+
+});
 
 

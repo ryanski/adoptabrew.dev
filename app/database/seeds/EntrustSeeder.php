@@ -15,26 +15,25 @@ class EntrustSeeder extends Seeder {
 		// $brewer->description = 'Brewery is allowed to make persistent brews to database and can edit their own brews.';
 		$brewer->save();
 
-		$lover = new Role();
-        $lover->name         = 'lover';
-        // $lover->display_name = 'Beer Lover';
-        // $lover->description  = 'Beer lover is allowed to make persistent ideas to database and can edit their own ideas.';
-        $lover->save();
+		$anewfan = new Role();
+        $anewfan->name    = 'anewfan';
+        // $anewfan->display_name = 'User anewfanistrator';
+        // $anewfan->description = 'User is allowed to manage and edit other users and their posts.';
+        $anewfan->save();
 
         $user = User::where('username', '=', 'RyanSki')->first();
         $user->roles()->attach( $admin->id );
         $user->roles()->attach( $brewer->id );
-        $user->roles()->attach( $lover->id );
+        $user->roles()->attach( $anewfan->id );
 
-        $seconduser = User::where('username', '=', 'Garrett');
+        $seconduser = User::where('username', '=', 'Garrett')->first();
         $seconduser->roles()->attach( $brewer->id );
-        $seconduser->roles()->attach( $lover->id );
-        // $seconduser->attachRole($brewer);
-        // $seconduser->attachRole($lover);
+        $seconduser->roles()->attach( $anewfan->id );
+        
       
-      	$thirduser = User::where('username', '=', 'Robot');
-      	$thirduser->roles()->attach( $lover->id );
-      	// $thirduser->attachRole($lover);
+      	$thirduser = User::where('username', '=', 'Robot')->first();
+      	$thirduser->roles()->attach( $anewfan->id );
+      	
 
         // Permissions
 
@@ -118,6 +117,6 @@ class EntrustSeeder extends Seeder {
 
         $admin->attachPermissions(array($editIdea, $editBrew, $destroyIdea, $destroyBrew, $editUser, $editRoles));
         $brewer->attachPermissions(array($createBrew, $editOwnBrew, $editOwnUser));
-        $lover->attachPermissions(array($editOwnUser, $createIdea, $editOwnIdea));
+        $anewfan->attachPermissions(array($editOwnUser, $createIdea, $editOwnIdea));
 	}
 }
